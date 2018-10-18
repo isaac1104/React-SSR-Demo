@@ -21,8 +21,8 @@ export const fetchUsers = () => async dispatch => {
   const request = await axios.get('http://react-ssr-api.herokuapp.com/users');
   const { data } = request;
   if (data) {
-    dispatch(fetchUsersSuccess());
+    dispatch(fetchUsersSuccess(data));
   } else {
-    disptach(fetchUsersFail());
+    disptach(fetchUsersFail('An Unexpected Error Has Occured. Please Try Again Later.'));
   }
 };

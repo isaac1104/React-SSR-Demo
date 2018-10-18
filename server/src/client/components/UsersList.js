@@ -4,11 +4,11 @@ import { fetchUsers } from '../actions';
 
 class UsersList extends Component {
   componentDidMount() {
-    // fetch users list from api
-  }
+    this.props.fetchUsers();
+  };
 
   renderUsers() {
-    return this.props.users.map(user => {
+    return this.props.users.data.map(user => {
       return <li key={user.id}>{user.name}</li>
     });
   };
@@ -18,7 +18,7 @@ class UsersList extends Component {
       <div>
         <h1>Users List</h1>
         <ul>
-          {/* {this.renderUsers()} */}
+          {this.renderUsers()}
         </ul>
       </div>
     );
