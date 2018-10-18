@@ -39308,8 +39308,8 @@ function mapStateToProps(_ref) {
   };
 };
 
-function loadData() {
-  console.log('load data here');
+function loadData(store) {
+  return store.dispatch((0, _actions.fetchUsers)());
 };
 
 exports.loadData = loadData;

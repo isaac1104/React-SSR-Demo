@@ -31,8 +31,8 @@ function mapStateToProps({ users }) {
   };
 };
 
-function loadData() {
-  console.log('load data here');
+function loadData(store) {
+  return store.dispatch(fetchUsers());
 };
 
 export { loadData };
