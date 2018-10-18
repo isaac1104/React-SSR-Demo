@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Home from '../client/components/Home';
+import App from '../client/components/App';
 
 export default () => {
-  const content = ReactDOMServer.renderToString(<Home />);
+  const content = ReactDOMServer.renderToString(<App />);
   return `
     <html>
       <head>
