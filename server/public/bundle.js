@@ -39161,25 +39161,25 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _App = __webpack_require__(445);
+var _HomePage = __webpack_require__(445);
 
-var _App2 = _interopRequireDefault(_App);
+var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _UsersList = __webpack_require__(446);
+var _UsersListPage = __webpack_require__(446);
 
-var _UsersList2 = _interopRequireDefault(_UsersList);
+var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = [{
   path: '/',
   exact: true,
-  component: _App2.default
+  component: _HomePage2.default
 }, {
-  loadData: _UsersList.loadData,
+  loadData: _UsersListPage.loadData,
   path: '/users',
   exact: true,
-  component: _UsersList2.default
+  component: _UsersListPage2.default
 }];
 
 /***/ }),
@@ -39199,14 +39199,14 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App() {
+var HomePage = function HomePage() {
   return _react2.default.createElement(
     'div',
     null,
     _react2.default.createElement(
       'h1',
       null,
-      'App Component'
+      'HomePage Component'
     ),
     _react2.default.createElement(
       'button',
@@ -39218,7 +39218,7 @@ var App = function App() {
   );
 };
 
-exports.default = App;
+exports.default = HomePage;
 
 /***/ }),
 /* 446 */
