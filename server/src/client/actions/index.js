@@ -1,4 +1,4 @@
-import { REQUEST_FETCH_USERS, FETCH_USERS_SUCCESS, FETCH_USERS_FAIL } from './types';
+import { REQUEST_FETCH_USERS, FETCH_USERS_SUCCESS, FETCH_USERS_FAIL, FETCH_CURRENT_USER } from './types';
 
 const requestFetchUsers = () => ({
   type: REQUEST_FETCH_USERS,
@@ -24,4 +24,13 @@ export const fetchUsers = () => async (dispatch, getState, api) => {
   } else {
     disptach(fetchUsersFail('An Unexpected Error Has Occured. Please Try Again Later.'));
   }
+};
+
+export const fetchCurrentUser = () => async (dispatch, getState, api) => {
+  const request = await api.get('/current_user');
+  const { data } = request;
+  dispatch({
+    type: FETCH_CURRENT_USER,
+    payload: data
+  });
 };

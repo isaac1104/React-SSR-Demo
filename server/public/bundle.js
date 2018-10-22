@@ -7831,6 +7831,7 @@ Object.defineProperty(exports, "__esModule", {
 var REQUEST_FETCH_USERS = exports.REQUEST_FETCH_USERS = 'REQUEST_FETCH_USERS';
 var FETCH_USERS_SUCCESS = exports.FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 var FETCH_USERS_FAIL = exports.FETCH_USERS_FAIL = 'FETCH_USERS_FAIL';
+var FETCH_CURRENT_USER = exports.FETCH_CURRENT_USER = 'FETCH_CURRENT_USER';
 
 /***/ }),
 /* 176 */
@@ -40252,7 +40253,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchUsers = undefined;
+exports.fetchCurrentUser = exports.fetchUsers = undefined;
 
 var _types = __webpack_require__(175);
 
@@ -40315,6 +40316,40 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
   }();
 };
 
+var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
+  return function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(dispatch, getState, api) {
+      var request, data;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return api.get('/current_user');
+
+            case 2:
+              request = _context2.sent;
+              data = request.data;
+
+              dispatch({
+                type: _types.FETCH_CURRENT_USER,
+                payload: data
+              });
+
+            case 5:
+            case 'end':
+              return _context2.stop();
+          }
+        }
+      }, _callee2, undefined);
+    }));
+
+    return function (_x4, _x5, _x6) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
 /***/ }),
 /* 468 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -40332,10 +40367,15 @@ var _users_reducer = __webpack_require__(469);
 
 var _users_reducer2 = _interopRequireDefault(_users_reducer);
 
+var _auth_reducer = __webpack_require__(471);
+
+var _auth_reducer2 = _interopRequireDefault(_auth_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rootReducer = (0, _redux.combineReducers)({
-  users: _users_reducer2.default
+  users: _users_reducer2.default,
+  auth: _auth_reducer2.default
 });
 
 exports.default = rootReducer;
@@ -40421,6 +40461,33 @@ exports.default = function () {
     )
   );
 };
+
+/***/ }),
+/* 471 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _types = __webpack_require__(175);
+
+var authReducer = function authReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _types.FETCH_CURRENT_USER:
+      return action.payload || false;
+    default:
+      return state;
+  }
+};
+
+exports.default = authReducer;
 
 /***/ })
 /******/ ]);
