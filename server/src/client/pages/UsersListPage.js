@@ -17,9 +17,7 @@ class UsersList extends Component {
     return (
       <div className='center-align' style={{ marginTop: '200px' }}>
         <h3>Users List</h3>
-        <ul>
-          {this.renderUsers()}
-        </ul>
+        <ul>{this.renderUsers()}</ul>
       </div>
     );
   }
