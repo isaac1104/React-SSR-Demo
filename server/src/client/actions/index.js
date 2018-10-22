@@ -1,5 +1,4 @@
 import { REQUEST_FETCH_USERS, FETCH_USERS_SUCCESS, FETCH_USERS_FAIL } from './types';
-import axios from 'axios';
 
 const requestFetchUsers = () => ({
   type: REQUEST_FETCH_USERS,
@@ -16,9 +15,9 @@ const fetchUsersFail = error => ({
   payload: error
 });
 
-export const fetchUsers = () => async dispatch => {
+export const fetchUsers = () => async (dispatch, getState, api) => {
   dispatch(requestFetchUsers());
-  const request = await axios.get('http://react-ssr-api.herokuapp.com/users');
+  const request = await api.get('/users');
   const { data } = request;
   if (data) {
     dispatch(fetchUsersSuccess(data));
