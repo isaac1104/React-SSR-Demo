@@ -40446,21 +40446,26 @@ var UsersList = function (_Component) {
       });
     }
   }, {
+    key: 'renderHead',
+    value: function renderHead() {
+      return _react2.default.createElement(
+        _reactHelmet.Helmet,
+        null,
+        _react2.default.createElement(
+          'title',
+          null,
+          'Users App'
+        ),
+        _react2.default.createElement('meta', { property: 'og:title', content: 'Users App' })
+      );
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         { className: 'center-align', style: { marginTop: '200px' } },
-        _react2.default.createElement(
-          _reactHelmet.Helmet,
-          null,
-          _react2.default.createElement(
-            'title',
-            null,
-            'Users App'
-          ),
-          _react2.default.createElement('meta', { property: 'og:title', content: 'Users App' })
-        ),
+        this.renderHead(),
         _react2.default.createElement(
           'h3',
           null,
